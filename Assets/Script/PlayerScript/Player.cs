@@ -26,4 +26,14 @@ public class Player : MonoBehaviour
         transform.position=Vector3.Lerp(plyPos,aimPos,ipValue); //移動
 
     }
+
+    //当たり判定
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Enemy")
+        {
+            Debug.Log("HIT");
+            Destroy(gameObject);
+        }
+    }
 }

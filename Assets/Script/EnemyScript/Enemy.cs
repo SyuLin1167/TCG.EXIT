@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //íÜêSÇ∆äpìx
+    [SerializeField] GameObject target;
+    float angle = 50;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    //Collision
-    void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.name == "PlayerTest")
-        {
-            Debug.Log("HIT");
-        }
+        transform.RotateAround(target.transform.position, Vector3.forward, angle * Time.deltaTime);
     }
 }
