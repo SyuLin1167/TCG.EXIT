@@ -5,11 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Vector3 plyPos;                             //プレイヤー座標
+    [SerializeField] private float Speed=0.0f;
+
+    private Vector3 cameraPos;
+    [SerializeField] GameObject camera;
+
     private GameObject[] targetObj;
     private GameObject nearObj;                         //最も近いオブジェクト
-    private int objNum=1;
-    [SerializeField] GameObject camera;
-    private Vector3 cameraPos;
+    private int objNum=0;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,18 +29,20 @@ public class Player : MonoBehaviour
         //SearchObj();
         if(transform.position.y>=targetObj[objNum].transform.position.y)
         {
-            if(objNum!=0)
+            if (Input.GetKeyDown("space"))
             {
-                objNum--;
+                if(targetObj.Length>=objNum)
+                {
+                    objNum++;
+                }
             }
         }
 
-
         transform.position=Vector3.MoveTowards(transform.position,
-        targetObj[objNum].transform.position,5.0f*Time.deltaTime);
+        targetObj[objNum].transform.position,Speed*Time.deltaTime);
 
         cameraPos = camera.transform.position;//カメラの座標取得
-        if(cameraPos.y > plyPos.y+2.0f)
+        if(cameraPos.y > plyPos.y)
         {
             Debug.Log("Game Over");
         }

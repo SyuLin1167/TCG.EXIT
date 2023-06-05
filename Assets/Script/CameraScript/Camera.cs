@@ -5,7 +5,7 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
 
-     private float STEP = 2.0f;//移動速度
+    [SerializeField] private float STEP = 1.0f;//移動速度
     // Start is called before the first frame update
     void Start()
     {
