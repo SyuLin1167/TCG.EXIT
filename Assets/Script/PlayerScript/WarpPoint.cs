@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WarpPoint : MonoBehaviour
 {
-    public Vector3 warpPos;
+    private Vector3 warpPos;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +15,5 @@ public class WarpPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
