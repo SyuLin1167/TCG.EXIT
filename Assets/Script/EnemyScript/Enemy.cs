@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //íÜêSÇ∆äpìx
-    [SerializeField] GameObject target;
-    float angle = 50;
+    //ÔøΩÔøΩÔøΩSÔøΩ∆äpÔøΩx
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private Vector3 pos;
+    [SerializeField] private float angle = 50;
+
+    private GameObject enemys;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        enemys = Instantiate(enemy, transform.position, transform.rotation);  //Âºæ„ÇíË§áË£Ω
+        enemys.transform.position=this.transform.position+pos;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(target.transform.position, Vector3.forward, angle * Time.deltaTime);
+        enemys.transform.RotateAround(this.transform.position, Vector3.forward, angle * Time.deltaTime);
     }
 }

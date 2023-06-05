@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3134597631618288306}
   - component: {fileID: 3134597631618288305}
   - component: {fileID: 3134597631618288304}
+  - component: {fileID: 2015513118977353399}
+  - component: {fileID: -3841857758230339773}
+  - component: {fileID: 3386613793070384547}
   m_Layer: 0
   m_Name: Warp
   m_TagString: Warp
@@ -97,4 +100,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d953340be918a5d4282f8166e888bcd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPos: {x: 0, y: 0, z: 0}
+--- !u!114 &2015513118977353399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3134597631618288311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04379affe2a35c4aa1a67be3188e8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1394231449223514347, guid: 5096fa3313642e945a4a90ef10bd17d8, type: 3}
+  pos: {x: 0, y: 2, z: 0}
+--- !u!114 &-3841857758230339773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3134597631618288311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04379affe2a35c4aa1a67be3188e8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1394231449223514347, guid: 5096fa3313642e945a4a90ef10bd17d8, type: 3}
+  pos: {x: 1.8, y: -1.1, z: 0}
+--- !u!114 &3386613793070384547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3134597631618288311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04379affe2a35c4aa1a67be3188e8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1394231449223514347, guid: 5096fa3313642e945a4a90ef10bd17d8, type: 3}
+  pos: {x: -1.8, y: -1.1, z: 0}
