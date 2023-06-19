@@ -7,20 +7,17 @@ public class Player : MonoBehaviour
     private Vector3 plyPos;                             //プレイヤー座標
     [SerializeField] private float Speed=0.0f;
 
-    private Vector3 cameraPos;
-    [SerializeField] GameObject camera;
-
     private GameObject[] targetObj;
     private GameObject nearObj;                         //最も近いオブジェクト
     private int objNum=0;
 
+    [SerializeField] private GameObject Goal; 
 
 
     // Start is called before the first frame update
     void Start()
     {
         targetObj=GameObject.FindGameObjectsWithTag("Warp");
-        camera = GameObject.Find("Main Camera");
     }
 
     //更新処理
@@ -35,23 +32,22 @@ public class Player : MonoBehaviour
                 {
                     objNum++;
                 }
+                else
+                {
+                    transform.position=Vector3.MoveTowards(transform.position,
+                    Goal.transform.position,Speed*Time.deltaTime);
+                }
             }
         }
 
         transform.position=Vector3.MoveTowards(transform.position,
         targetObj[objNum].transform.position,Speed*Time.deltaTime);
-
-        cameraPos = camera.transform.position;//カメラの座標取得
-        if(cameraPos.y > plyPos.y)
-        {
-            Debug.Log("Game Over");
-        }
     }
 
     //当たり判定
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Enemy")
+        if (collision.collider.tag == "Enemy"||collision.collider.tag == "Fire")
         {
             Debug.Log("HIT");
             Destroy(gameObject);

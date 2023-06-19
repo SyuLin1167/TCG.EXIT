@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Warp
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3373972755
+    locked: 0
+  - name: Camera
+    uniqueID: 3332301927
     locked: 0
