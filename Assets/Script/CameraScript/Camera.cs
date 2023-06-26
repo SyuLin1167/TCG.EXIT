@@ -17,9 +17,9 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Time.time - startTime >= 3.0f)
-        //{
+        if (Time.time - startTime >= 3.0f)
+        {
             transform.position = new Vector3(0, target.transform.position.y, -10);
-        //}
+        }
     }
 }
