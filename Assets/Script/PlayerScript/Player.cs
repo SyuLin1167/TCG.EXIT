@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float Speed=0.0f;
 
     private GameObject[] targetObj;
+    private Vector3 targetPos;
     private GameObject nearObj;                         //最も近いオブジェクト
     private int objNum=0;
 
@@ -28,44 +29,30 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown("space"))
             {
-                if(targetObj.Length>=objNum)
+                if(objNum<targetObj.Length-1)
                 {
                     objNum++;
+                    Debug.Log(objNum);
+                    targetPos=targetObj[objNum].transform.position;
                 }
                 else
                 {
-                    transform.position=Vector3.MoveTowards(transform.position,
-                    Goal.transform.position,Speed*Time.deltaTime);
+                    targetPos=Goal.transform.position;
                 }
             }
         }
-
-        transform.position=Vector3.MoveTowards(transform.position,
-        targetObj[objNum].transform.position,Speed*Time.deltaTime);
+            transform.position=Vector3.MoveTowards(transform.position,
+            targetPos,Speed*Time.deltaTime);
     }
 
     //当たり判定
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.collider.tag == "Enemy"||collision.collider.tag == "Fire")
+        if (other.gameObject.CompareTag("Enemy")||
+            other.gameObject.CompareTag("Fire"))
         {
             Debug.Log("HIT");
-            Destroy(gameObject);
-        }
-    }
-
-    void SearchObj()
-    {
-        targetObj=GameObject.FindGameObjectsWithTag("Warp");
-        foreach(GameObject obj in targetObj)
-        {
-            float nearDis=100.0f;
-            float objDis=Vector3.Distance(transform.position,obj.transform.position);
-            if(transform.position.y<=nearObj.transform.position.y&&nearDis>objDis)
-            {
-                nearObj=obj;
-                nearDis=objDis;
-            }
+            Destroy(this.gameObject);
         }
     }
 }
