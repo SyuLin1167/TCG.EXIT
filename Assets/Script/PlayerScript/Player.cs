@@ -13,38 +13,43 @@ public class Player : MonoBehaviour
     private GameObject nearObj;                         //最も近いオブジェクト
     private int objNum=0;
 
-    [SerializeField] private GameObject Goal; 
+    [SerializeField] private GameObject Goal;
 
+    float startTime;
 
     // Start is called before the first frame update
     void Start()
     {
         targetObj=GameObject.FindGameObjectsWithTag("Warp");
+        startTime = Time.time;
     }
 
     //更新処理
     void Update()
     {
-        //SearchObj();
-        if(transform.position.y>=targetObj[objNum].transform.position.y)
+        if (Time.time - startTime >= 3.0f)
         {
-            if (Input.GetKeyDown("space"))
+            //SearchObj();
+            if (transform.position.y >= targetObj[objNum].transform.position.y)
             {
-                if(objNum<targetObj.Length-1)
+                if (Input.GetKeyDown("space"))
                 {
-                    objNum++;
-                    Debug.Log(objNum);
-                    targetPos=targetObj[objNum].transform.position;
-                }
-                else
-                {
-                    targetPos=Goal.transform.position;
+                    if (objNum < targetObj.Length - 1)
+                    {
+                        objNum++;
+                        Debug.Log(objNum);
+                        targetPos = targetObj[objNum].transform.position;
+                    }
+                    else
+                    {
+                        targetPos = Goal.transform.position;
+                    }
                 }
             }
+            transform.position = Vector3.MoveTowards(transform.position,
+            targetPos, Speed * Time.deltaTime);
+            Debug.Log("経過時間(秒)" + Time.time);
         }
-        transform.position=Vector3.MoveTowards(transform.position,
-        targetPos,Speed*Time.deltaTime);
-        Debug.Log("経過時間(秒)" + Time.time);
     }
 
     //当たり判定
