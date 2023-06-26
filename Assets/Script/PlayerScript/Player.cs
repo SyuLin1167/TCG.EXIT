@@ -42,8 +42,9 @@ public class Player : MonoBehaviour
                 }
             }
         }
-            transform.position=Vector3.MoveTowards(transform.position,
-            targetPos,Speed*Time.deltaTime);
+        transform.position=Vector3.MoveTowards(transform.position,
+        targetPos,Speed*Time.deltaTime);
+        Debug.Log("経過時間(秒)" + Time.time);
     }
 
     //当たり判定
