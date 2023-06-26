@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     private Vector3 plyPos;                             //プレイヤー座標
     [SerializeField] private float Speed=0.0f;
+    [SerializeField] private ParticleSystem plyParticle;
 
     private GameObject[] targetObj;
     private Vector3 targetPos;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
         //SearchObj();
         if(transform.position.y>=targetObj[objNum].transform.position.y)
         {
+            //plyParticle.Pause();
             if (Input.GetKeyDown("space"))
             {
                 if(objNum<targetObj.Length-1)
@@ -39,8 +42,11 @@ public class Player : MonoBehaviour
                 {
                     targetPos=Goal.transform.position;
                 }
+                plyParticle.Play();
             }
         }
+        plyParticle.transform.position=this.transform.position;
+
             transform.position=Vector3.MoveTowards(transform.position,
             targetPos,Speed*Time.deltaTime);
     }
@@ -51,8 +57,9 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy")||
             other.gameObject.CompareTag("Fire"))
         {
-            Debug.Log("HIT");
-            Destroy(this.gameObject);
+            //Debug.Log("HIT");
+            //Destroy(this.gameObject);
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
