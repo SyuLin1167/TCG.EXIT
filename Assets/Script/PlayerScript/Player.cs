@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -51,8 +52,9 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy")||
             other.gameObject.CompareTag("Fire"))
         {
-            Debug.Log("HIT");
-            Destroy(this.gameObject);
+            //Debug.Log("HIT");
+            //Destroy(this.gameObject);
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
