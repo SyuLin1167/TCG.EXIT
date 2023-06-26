@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private Vector3 pos;
     [SerializeField] private float angle = 50;
+        [SerializeField] private bool reversAngle=false;
     private Vector3 dir;
 
     private GameObject enemys;
@@ -18,6 +19,10 @@ public class Enemy : MonoBehaviour
         enemys = Instantiate(enemy, transform.position, transform.rotation);  //弾を複製
         enemys.transform.position=this.transform.position+pos;
         dir=new Vector3(0,1,0);
+        if(reversAngle)
+        {
+            angle=-angle;
+        }
     }
 
     // Update is called once per frame

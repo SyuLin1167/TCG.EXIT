@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -1142748078266733235}
   - component: {fileID: 3437084807337149483}
   - component: {fileID: -3236743721856231315}
+  - component: {fileID: 7903911116986492108}
   m_Layer: 0
   m_Name: Warp
   m_TagString: Warp
@@ -132,3 +133,16 @@ MonoBehaviour:
   enemy: {fileID: 8556965017732895099, guid: ea54baeb2fdc05e4697afb3325235231, type: 3}
   pos: {x: -1.5, y: -1, z: 0}
   angle: 50
+--- !u!114 &7903911116986492108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508288889466865072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d953340be918a5d4282f8166e888bcd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: {fileID: 8933783871858171140, guid: 37a228fa12998b14e9896483e703af72, type: 3}
