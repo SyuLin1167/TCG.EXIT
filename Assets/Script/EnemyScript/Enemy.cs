@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     //���S�Ɗp�x
     [SerializeField] private GameObject enemy;
     [SerializeField] private Vector3 pos;
-    [SerializeField] private float angle = 50;
+    [SerializeField] private float angle = 60;
         [SerializeField] private bool reversAngle=false;
     private Vector3 dir;
 
