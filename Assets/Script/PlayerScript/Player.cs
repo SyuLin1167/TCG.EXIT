@@ -49,6 +49,12 @@ public class Player : MonoBehaviour
 
             transform.position=Vector3.MoveTowards(transform.position,
             targetPos,Speed*Time.deltaTime);
+
+        if (this.transform.position == Goal.transform.position)
+        {
+            SceneManager.LoadScene("GameClear");
+        }
+
     }
 
     //当たり判定
